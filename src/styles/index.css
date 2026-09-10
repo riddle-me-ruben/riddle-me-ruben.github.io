@@ -1,0 +1,21 @@
+/* ==========================================================================
+   index.css — the only stylesheet the app imports.
+
+   Every @import must come first (postcss rule), so the Tailwind directives
+   live in tailwind.css rather than inline here. Order is meaningful:
+
+     theme.css       colour + elevation tokens (CSS custom properties)
+     tailwind.css    @tailwind base / components / utilities
+     base.css        element defaults          -> @layer base
+     components.css  reusable component classes -> @layer components
+     utilities.css   one-off helpers            -> @layer utilities
+
+   Tailwind hoists each @layer block into the right place regardless of file
+   order, so a change lands in one obvious file.
+   ========================================================================== */
+
+@import './theme.css';
+@import './tailwind.css';
+@import './base.css';
+@import './components.css';
+@import './utilities.css';

@@ -1,41 +1,57 @@
+/** Colour values live in src/styles/theme.css as raw RGB channels so that a
+ *  single edit there re-themes both the utility classes and the hand-written
+ *  CSS. The <alpha-value> placeholder keeps opacity modifiers working
+ *  (e.g. bg-neon-500/10). */
+const ink = (shade) => `rgb(var(--ink-${shade}) / <alpha-value>)`
+const neon = (shade) => `rgb(var(--neon-${shade}) / <alpha-value>)`
+
 export default {
-  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        navy: {
-          50: '#f0f4f9',
-          100: '#dce6f0',
-          200: '#b3c8dd',
-          300: '#84a5c4',
-          400: '#5580a8',
-          500: '#376189',
-          600: '#264a6e',
-          700: '#1b3856',
-          800: '#122740',
-          900: '#0a1830',
-          950: '#050f1e',
+        ink: {
+          50: ink(50),
+          100: ink(100),
+          200: ink(200),
+          300: ink(300),
+          400: ink(400),
+          500: ink(500),
+          600: ink(600),
+          700: ink(700),
+          800: ink(800),
+          850: ink(850),
+          900: ink(900),
+          950: ink(950),
         },
-        accent: {
-          50: '#fff4ec',
-          100: '#ffe4cc',
-          200: '#ffc699',
-          300: '#ffa15f',
-          400: '#ff8a3d',
-          500: '#f2740f',
-          600: '#d9600a',
-          700: '#b34c09',
-          800: '#8f3d0d',
-          900: '#75330f',
+        neon: {
+          50: neon(50),
+          100: neon(100),
+          200: neon(200),
+          300: neon(300),
+          400: neon(400),
+          500: neon(500),
+          600: neon(600),
+          700: neon(700),
+          800: neon(800),
+          900: neon(900),
+          950: neon(950),
         },
+        todo: 'rgb(var(--signal-todo) / <alpha-value>)',
+        danger: 'rgb(var(--signal-danger) / <alpha-value>)',
+        info: 'rgb(var(--signal-info) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       boxShadow: {
-        card: '0 1px 2px 0 rgba(10, 24, 48, 0.06), 0 1px 3px 1px rgba(10, 24, 48, 0.08)',
-        cardHover: '0 4px 10px -2px rgba(10, 24, 48, 0.15), 0 2px 6px -1px rgba(10, 24, 48, 0.1)',
+        card: 'var(--shadow-card)',
+        lift: 'var(--shadow-lift)',
+        neon: 'var(--shadow-neon)',
+      },
+      maxWidth: {
+        page: 'var(--page-max)',
       },
     },
   },

@@ -1,34 +1,29 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle2, CircleDashed, Lock } from 'lucide-react'
-import { Card, CardBody, CardHeader, Badge, SectionHeading, Prose, PdfLink } from '../components/ui.jsx'
+import { ArrowRight, CheckCircle2, CircleDashed } from 'lucide-react'
+import { Card, CardBody, Badge, SectionHeading, Prose, PdfLink } from '../components/ui.jsx'
 
 const SUBPAGES = [
   {
     to: '/sprint-1/market-research',
     title: 'Market Research',
-    status: 'Published',
     done: true,
-    blurb:
-      'Aggregate findings across 13 discovery interviews, the top pick deep dive, and the four assumptions we pivoted from.',
+    blurb: 'Aggregate findings across 13 discovery interviews, the top pick deep dive, and what we pivoted from.',
   },
   {
     to: '/sprint-1/business-strategy',
     title: 'Business Strategy',
-    status: 'Placeholder',
     done: false,
-    blurb: 'The strategy-to-project chain: why ShareTab earns the right to exist and which business objective it serves.',
+    blurb: 'The strategy-to-project chain: why ShareTab earns the right to exist and which objective it serves.',
   },
   {
     to: '/sprint-1/project-charter',
     title: 'Project Charter',
-    status: 'Placeholder',
     done: false,
-    blurb: 'Scope boundary, assumptions and the stakeholder register. The anchor document for every later sprint.',
+    blurb: 'Scope boundary, assumptions and the stakeholder register. The anchor document for later sprints.',
   },
   {
     to: '/sprint-1/contributions',
     title: 'Contributions & AI Disclosure',
-    status: 'Placeholder',
     done: false,
     blurb: 'What each member owned and reviewed this sprint, plus the required AI use disclosure.',
   },
@@ -36,41 +31,33 @@ const SUBPAGES = [
 
 export default function Sprint1() {
   return (
-    <div className="space-y-8">
-      <div>
+    <div className="stack-lg">
+      <header>
         <SectionHeading
           eyebrow="Sprint 1"
           title="Discovery & Charter"
           description="Sprint 1 establishes what problem ShareTab solves, for whom, and why it is worth building. Everything in later sprints traces back to the documents on this page."
         />
-        <div className="flex flex-wrap items-center gap-3">
-          <PdfLink href="/docs/sprint1-bundle.pdf" available={false} />
-          <span className="text-xs text-slate-500 dark:text-slate-400">
-            Every public document on this page needs a PDF uploaded to Blackboard by the sprint deadline.
-          </span>
-        </div>
-      </div>
+        <PdfLink href="/docs/sprint1-bundle.pdf" available={false} />
+      </header>
 
       <div className="grid gap-4 sm:grid-cols-2">
         {SUBPAGES.map((p) => (
-          <Card key={p.to} className={p.done ? '' : 'border-dashed'}>
+          <Card key={p.to}>
             <CardBody>
               <div className="mb-2 flex items-center justify-between gap-2">
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-2">
                   {p.done ? (
-                    <CheckCircle2 size={15} className="text-emerald-500" />
+                    <CheckCircle2 size={15} className="text-neon-400" />
                   ) : (
-                    <CircleDashed size={15} className="text-amber-500" />
+                    <CircleDashed size={15} className="text-todo" />
                   )}
-                  <h3 className="text-base font-semibold text-navy-900 dark:text-slate-100">{p.title}</h3>
+                  <h3 className="text-base font-semibold text-ink-50">{p.title}</h3>
                 </span>
-                <Badge tone={p.done ? 'green' : 'yellow'}>{p.status}</Badge>
+                <Badge tone={p.done ? 'done' : 'todo'}>{p.done ? 'Published' : '[TODO]'}</Badge>
               </div>
-              <p className="mb-4 text-sm leading-6 text-slate-600 dark:text-slate-400">{p.blurb}</p>
-              <Link
-                to={p.to}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-600 hover:underline dark:text-accent-400"
-              >
+              <p className="mb-4 text-sm leading-6 text-ink-400">{p.blurb}</p>
+              <Link to={p.to} className="inline-flex items-center gap-1.5 text-sm font-medium text-neon-400">
                 Open
                 <ArrowRight size={14} />
               </Link>
@@ -79,18 +66,13 @@ export default function Sprint1() {
         ))}
       </div>
 
-      <Card className="border-slate-300 dark:border-navy-700">
-        <CardHeader
-          icon={Lock}
-          title="Sprint Retrospective — not published here"
-          subtitle="Private deliverable"
-        />
+      <Card>
         <CardBody>
           <Prose>
-            <p className="!mb-0 text-sm">
-              Sprint 1 also requires a Sprint Retrospective with a team half and a project half. It is
-              deliberately <strong>not</strong> on this site: it is private and submitted through Blackboard
-              only. The same applies to peer evaluations. Nothing on this portal should ever link to either.
+            <p>
+              <strong>Sprint Retrospective — not published here.</strong> Sprint 1 also requires a retrospective
+              with a team half and a project half. It is private and submitted through Blackboard only, as are
+              peer evaluations. Nothing on this portal links to either.
             </p>
           </Prose>
         </CardBody>

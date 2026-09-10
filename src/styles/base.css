@@ -1,0 +1,55 @@
+/* ==========================================================================
+   base.css — element defaults
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-200 antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-semibold text-ink-50;
+    text-wrap: balance;
+  }
+
+  a {
+    @apply text-neon-400 no-underline;
+  }
+
+  a:hover {
+    @apply text-neon-300;
+  }
+
+  /* Visible keyboard focus everywhere — the site is graded on accessibility
+     as much as looks, and the neon ring is legible on every surface. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-neon-500 ring-offset-2 ring-offset-ink-950;
+  }
+
+  ::selection {
+    background-color: rgb(var(--neon-500) / 0.28);
+    @apply text-ink-50;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-ink-700;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-600;
+  }
+}

@@ -1,0 +1,17 @@
+/* ==========================================================================
+   utilities.css — small helpers that don't belong to a component
+   ========================================================================== */
+
+@layer utilities {
+  .page {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+  }
+
+  .stack-lg > * + * {
+    @apply mt-8;
+  }
+
+  .stack-xl > * + * {
+    @apply mt-10;
+  }
+}

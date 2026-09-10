@@ -1,63 +1,61 @@
-// Single source of truth for the team. Guidelines §2 requires every member to
-// have a short bio on the About Us page: who they are, their role, and what
-// part of the project they own. Bios are PLACEHOLDER text until each member
-// writes their own — they must be able to defend their page in the final Q&A.
+// The five team members. Guidelines require every member to have a short bio
+// on About Us covering who they are and what part of the project they own.
+//
+// `photo`: drop a square image into public/team/ and set the path here, e.g.
+//   photo: '/team/ruben.jpg'
+// While it is null the avatar falls back to initials, so the layout is
+// identical whether or not photos exist yet.
 
 export const TEAM = [
   {
     id: 'aaf',
     name: 'Amichai A. Fernandez',
     initials: 'AF',
-    role: 'Project Lead / Product Owner',
-    color: 'bg-navy-600',
-    owns: 'Business Strategy · stakeholder register',
-    bio: 'PLACEHOLDER — Amichai to write 2-3 sentences: year and major, relevant background, and what he owns on this project.',
-    bioPlaceholder: true,
-    research: { finance: 5, education: 0 },
+    photo: null,
+    owns: 'Portal build & deployment · sprint cadence',
+    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
+    bioTodo: true,
+    interviews: 5,
   },
   {
     id: 'sao',
     name: 'Sebastian A. Ochoa',
     initials: 'SO',
-    role: 'Scrum Master / Delivery Lead',
-    color: 'bg-accent-500',
-    owns: 'Portal build & deployment · sprint cadence',
-    bio: 'PLACEHOLDER — Sebastian O. to write 2-3 sentences: year and major, relevant background, and what he owns on this project.',
-    bioPlaceholder: true,
-    research: { finance: 0, education: 5 },
+    photo: null,
+    owns: 'Business Strategy · stakeholder register',
+    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
+    bioTodo: true,
+    interviews: 5,
   },
   {
     id: 'rjm',
     name: 'Ruben J. Martinez',
     initials: 'RM',
-    role: 'Lead Engineer / Architecture',
-    color: 'bg-emerald-600',
+    photo: null,
     owns: 'Repository & architecture · market research lead',
-    bio: 'PLACEHOLDER — Ruben to write 2-3 sentences: year and major, relevant background, and what he owns on this project.',
-    bioPlaceholder: true,
-    research: { finance: 5, education: 0 },
+    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
+    bioTodo: true,
+    interviews: 5,
   },
   {
     id: 'smlc',
     name: 'Sebastian M. Lucero-Chavez',
     initials: 'SL',
-    role: 'QA Lead / Research Synthesis',
-    color: 'bg-purple-600',
+    photo: null,
     owns: 'Interview synthesis · quality review',
-    bio: 'PLACEHOLDER — Sebastian L-C. to write 2-3 sentences: year and major, relevant background, and what he owns on this project.',
-    bioPlaceholder: true,
-    research: { finance: 3, education: 2 },
+    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
+    bioTodo: true,
+    interviews: 5,
   },
   {
     id: 'bnu',
     name: 'Brenden N. Ucol',
     initials: 'BU',
-    role: 'Data & Infrastructure Lead',
-    color: 'bg-cyan-600',
-    owns: 'Project Charter · comparative research on Idea 2',
-    bio: 'PLACEHOLDER — Brenden to write 2-3 sentences: year and major, relevant background, and what he owns on this project.',
-    bioPlaceholder: true,
-    research: { finance: 0, education: 5 },
+    photo: null,
+    owns: 'Project Charter · comparative research',
+    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
+    bioTodo: true,
+    interviews: 5,
   },
 ]
 
@@ -68,8 +66,7 @@ export function memberById(id) {
 export const PROJECT = {
   name: 'ShareTab',
   subtitle: 'Roommate Budget Tracker',
-  domain: 'Finance',
-  // Guidelines §2: Home needs a one-sentence description of the business problem.
+  // Guidelines: Home needs a one-sentence description of the business problem.
   oneSentenceProblem:
     'When groups split shared expenses, the money is easy to divide but almost impossible to track — so balances are forgotten, chased awkwardly across mismatched payment apps, or quietly written off.',
   course: 'CS 4390 / 5388 — Software Project Management',

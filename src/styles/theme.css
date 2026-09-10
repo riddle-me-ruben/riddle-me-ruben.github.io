@@ -1,0 +1,51 @@
+/* ==========================================================================
+   theme.css — design tokens
+   Single source of truth for colour. Values are raw RGB channels so Tailwind
+   can apply opacity modifiers (bg-surface/60) via <alpha-value>.
+   Palette: near-black greys + a neon green accent.
+   ========================================================================== */
+
+:root {
+  /* --- Ink: near-black through light grey ------------------------------- */
+  --ink-950: 6 8 7;        /* page background        #060807 */
+  --ink-900: 12 15 14;     /* raised background      #0C0F0E */
+  --ink-850: 17 21 20;     /* card surface           #111514 */
+  --ink-800: 24 29 28;     /* elevated surface       #181D1C */
+  --ink-700: 35 42 40;     /* borders                #232A28 */
+  --ink-600: 52 61 59;     /* strong borders         #343D3B */
+  --ink-500: 82 94 91;     /* disabled text          #525E5B */
+  --ink-400: 122 136 132;  /* muted text             #7A8884 */
+  --ink-300: 160 174 169;  /* secondary text         #A0AEA9 */
+  --ink-200: 201 212 208;  /* body text              #C9D4D0 */
+  --ink-100: 228 236 233;  /* strong text            #E4ECE9 */
+  --ink-50:  244 249 247;  /* headings               #F4F9F7 */
+
+  /* --- Neon: the accent -------------------------------------------------- */
+  --neon-950: 0 41 12;
+  --neon-900: 0 66 20;
+  --neon-800: 0 96 28;
+  --neon-700: 0 143 40;
+  --neon-600: 0 184 52;
+  --neon-500: 0 220 70;    /* primary accent         #00DC46 */
+  --neon-400: 45 240 108;  /* hover / bright         #2DF06C */
+  --neon-300: 108 249 151; /* light accent           #6CF997 */
+  --neon-200: 165 252 191;
+  --neon-100: 208 254 222;
+  --neon-50:  234 255 241;
+
+  /* --- Semantic signals -------------------------------------------------- */
+  --signal-todo: 250 204 21;      /* amber — unwritten content */
+  --signal-danger: 248 113 113;   /* red   — prohibited / risk  */
+  --signal-info: 125 211 252;     /* blue  — neutral note       */
+
+  /* --- Elevation --------------------------------------------------------- */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.35);
+  --shadow-lift: 0 8px 24px -6px rgb(0 0 0 / 0.65);
+  --shadow-neon: 0 0 0 1px rgb(var(--neon-500) / 0.35), 0 0 18px -4px rgb(var(--neon-500) / 0.4);
+
+  /* --- Layout ------------------------------------------------------------ */
+  --page-max: 64rem;
+  --radius: 0.75rem;
+
+  color-scheme: dark;
+}

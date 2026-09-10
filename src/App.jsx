@@ -13,9 +13,9 @@ import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-navy-950">
+    <div className="flex min-h-screen flex-col bg-ink-950">
       <Navbar />
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
+      <main className="page flex-1 py-8 sm:py-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
