@@ -2,27 +2,82 @@
 
 ## What this project is
 
-A client-only React SPA for the CS 5388 "Living Project Portal." There is no backend — every tab renders from data defined in-module (mostly under `src/data/` and inline constants at the top of each tab file), except the Kanban board, which mutates state persisted to `localStorage`.
+A client-only React SPA: the public "Living Project Portal" for **ShareTab**, a
+shared-expense tracker, built for CS 4390/5388 Software Project Management.
+
+There is no backend. Every page renders from data defined under `src/data/`.
+The site's job is to be a readable, linkable record of how the project was
+managed — treat page content as a graded document, not as UI copy.
 
 ## Architecture
 
-- `src/main.jsx` — mounts `App` inside `ThemeProvider`.
-- `src/App.jsx` — owns the single piece of navigation state (`activeTab`) and the `TABS` array that maps each tab id to its icon and component. Adding a tab means adding one entry here and one file under `src/tabs/`.
-- `src/context/ThemeContext.jsx` — light/dark mode. Toggles the `dark` class on `<html>` (Tailwind's `darkMode: 'class'` strategy) and persists the choice to `localStorage`. Read via `useTheme()`.
-- `src/components/Navbar.jsx` — top nav, tab switcher, theme toggle, mobile menu.
-- `src/components/ui.jsx` — every shared visual primitive (`Card`, `CardHeader`, `CardBody`, `Badge`, `SectionHeading`, `StatTile`, `Table`). New tab content should compose these rather than hand-rolling new card/badge markup, so theming and spacing stay consistent.
-- `src/data/team.js` — the single source of truth for the 5 project team members (id, name, role, initials, avatar color). Tabs that need to reference a member look them up by id via `memberById()`.
-- `src/tabs/*.jsx` — one file per tab, each a self-contained default export. Each tab file owns its own mock/reference data as local constants.
+- `src/main.jsx` — mounts `App` inside `ThemeProvider` + `BrowserRouter`, with
+  `ScrollToTop` so navigation lands at the top of each page.
+- `src/App.jsx` — the route table. One route per required page. Adding a sprint
+  means adding routes here, a page under `src/pages/`, and an entry in `NAV`.
+- `src/components/Navbar.jsx` — exports `NAV`, the single source of truth for
+  navigation. Sprint entries carry a `children` array that renders as a dropdown
+  on desktop and an indented group on mobile.
+- `src/components/ui.jsx` — every shared visual primitive. Compose these rather
+  than hand-rolling markup, so theming stays consistent.
+- `src/context/ThemeContext.jsx` — light/dark toggle, persisted to `localStorage`,
+  toggles the `dark` class on `<html>`.
+- `src/data/team.js` — the 5 members plus `PROJECT` metadata (name, the
+  one-sentence business problem, repo URL). Look members up with `memberById()`.
+- `src/data/research.js` — the Phase 2 interview corpus: aggregate findings,
+  top-pick deep dive, pivots, method notes. **Every claim here traces to a real
+  interview.** Do not add findings that are not in the source packet, and do not
+  soften or embellish the quotes — they are reproduced verbatim.
+- `src/pages/**` — one file per page. Long-form document pages use `DocSection`,
+  `Prose`, `Quote` and `DocMeta`.
+- `src/_archive/` — pre-pivot tab components. Not routed, not imported. See the
+  README in that folder before reusing anything from it.
 
-## Kanban board specifics (`src/tabs/KanbanTab.jsx`)
+## Document primitives (`src/components/ui.jsx`)
 
-- Board state is an array of task objects, persisted as JSON under the `lpp-kanban-board-v1` localStorage key, written on every state change via a `useEffect`.
-- Cards support two independent ways to change column: native HTML5 drag-and-drop (`draggable` + `onDragStart`/`onDragOver`/`onDrop`) and a `<select>` status dropdown on the card, so the board is fully usable without drag support (touch devices, accessibility).
-- Bump `STORAGE_KEY`'s version suffix (e.g. `-v2`) if the task shape changes, since there is no migration logic for previously stored boards.
+The course guidelines drive three of these — read them before changing:
+
+- `Prose` / `DocSection` / `Quote` — the flat-text reading surface. Guidelines §5
+  requires a visitor to read a document by scrolling the page, not by downloading
+  a file first. Don't replace prose with tables-only layouts.
+- `PdfLink` — renders an amber "PDF pending" chip while `available` is false.
+  Flip to `available` once the PDF exists in `public/docs/`. Never point it at a
+  file that isn't there; a broken download reads worse than an honest gap.
+- `Placeholder` — marks unwritten content. Every placeholder should name an owner
+  and say specifically what to write. A placeholder that just says "TODO" is
+  worse than nothing, because a reviewer can't tell what's missing.
+
+## Content rules
+
+- **Retrospectives and peer evaluations never appear on this site.** They are
+  private, Blackboard-only. Do not add a page, link or teaser for them.
+- **AI may not be used** for the individual reflection, the individual estimation
+  memo, any exam response, or the go/no-go reasoning in any sprint deliverable.
+  Where a placeholder covers one of those, it says so — leave that warning in.
+- Sprint pages are **additive**. Never edit or remove a published sprint page to
+  reflect new information; add a change log entry on the new sprint page instead.
+- Placeholder text is written in caps as `PLACEHOLDER` so it is greppable and
+  cannot be mistaken for finished content.
 
 ## Conventions
 
 - Components are `.jsx`, no TypeScript.
-- Styling is Tailwind utility classes only — no CSS modules or styled-components. Dark-mode variants are inlined next to their light counterparts (`bg-white dark:bg-navy-900`), not in separate stylesheets.
-- Color usage: `navy-*` for primary/structural UI, `accent-*` (orange) for actions/emphasis/highlights. Status/semantic colors (severity, priority, RACI letters) go through the `tone` prop on `Badge`/`StatTile`, backed by the `badgeTones` map in `src/components/ui.jsx` — add new tones there rather than inlining ad hoc color classes.
-- No client-side router: navigation is just React state (`activeTab`) since there's a fixed, small set of tabs and no need for deep-linkable URLs.
+- Tailwind utility classes only. Dark-mode variants inline next to their light
+  counterparts (`bg-white dark:bg-navy-900`), never in a separate stylesheet.
+- `navy-*` for structural UI, `accent-*` (orange) for emphasis and actions.
+  Semantic colors go through the `tone` prop on `Badge`/`StatTile`, backed by
+  `badgeTones` — add new tones there rather than inlining ad hoc colors.
+- Routing is real URLs via React Router. Do not reintroduce tab state for
+  navigation: individual documents must be linkable for peer review and grading.
+
+## Deployment
+
+`netlify.toml` has a catch-all `/* -> /index.html 200` redirect. It is load
+bearing — remove it and every route except `/` 404s on refresh.
+
+## Verifying a change
+
+`npm run build` catches import and syntax errors. To check that every route
+actually renders, SSR them: build `.smoke/ssr.test.jsx` with a vite SSR config
+and run it under node, iterating over the route list with `MemoryRouter`. Delete
+the scratch folder afterward — it should never be committed.

@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import { FileSignature, Calculator, ListTree, Kanban, Rocket, ShieldCheck } from 'lucide-react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
-import CharterTab from './tabs/CharterTab.jsx'
-import BusinessCaseTab from './tabs/BusinessCaseTab.jsx'
-import PlanRiskTab from './tabs/PlanRiskTab.jsx'
-import KanbanTab from './tabs/KanbanTab.jsx'
-import RoadmapTopologyTab from './tabs/RoadmapTopologyTab.jsx'
-import AIGovernanceTab from './tabs/AIGovernanceTab.jsx'
-
-const TABS = [
-  { id: 'charter', label: 'Charter & Stakeholders', shortLabel: 'Charter', icon: FileSignature, Component: CharterTab },
-  { id: 'business', label: 'Business Case & Estimation', shortLabel: 'Business Case', icon: Calculator, Component: BusinessCaseTab },
-  { id: 'plan', label: 'Hybrid Plan & Risk Register', shortLabel: 'Plan & Risk', icon: ListTree, Component: PlanRiskTab },
-  { id: 'kanban', label: 'Interactive Jira Kanban Board', shortLabel: 'Kanban Board', icon: Kanban, Component: KanbanTab },
-  { id: 'roadmap', label: 'Roadmap, Metrics & Topology', shortLabel: 'Roadmap', icon: Rocket, Component: RoadmapTopologyTab },
-  { id: 'governance', label: 'AI Governance & Audit', shortLabel: 'AI Governance', icon: ShieldCheck, Component: AIGovernanceTab },
-]
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import About from './pages/About.jsx'
+import Sprint1 from './pages/Sprint1.jsx'
+import MarketResearch from './pages/sprint1/MarketResearch.jsx'
+import BusinessStrategy from './pages/sprint1/BusinessStrategy.jsx'
+import ProjectCharter from './pages/sprint1/ProjectCharter.jsx'
+import Contributions from './pages/sprint1/Contributions.jsx'
+import Sprint2 from './pages/Sprint2.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('charter')
-  const ActiveComponent = TABS.find((t) => t.id === activeTab)?.Component ?? CharterTab
-
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-navy-950">
-      <Navbar tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
-      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
-        <ActiveComponent />
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-navy-950">
+      <Navbar />
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/sprint-1" element={<Sprint1 />} />
+          <Route path="/sprint-1/market-research" element={<MarketResearch />} />
+          <Route path="/sprint-1/business-strategy" element={<BusinessStrategy />} />
+          <Route path="/sprint-1/project-charter" element={<ProjectCharter />} />
+          <Route path="/sprint-1/contributions" element={<Contributions />} />
+          <Route path="/sprint-2" element={<Sprint2 />} />
+          <Route path="/index.html" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
-      <footer className="border-t border-slate-200 py-6 text-center text-xs text-slate-500 dark:border-navy-800 dark:text-slate-500">
-        CS 5388 Software Project Management &middot; Living Project Portal
-      </footer>
+      <Footer />
     </div>
   )
 }

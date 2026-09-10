@@ -1,3 +1,11 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+# Client-side routing: every path must serve index.html so deep links like
+# /sprint-1/market-research resolve on a hard refresh or when shared directly.
+# Without this, only the site root works and every shared page 404s.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

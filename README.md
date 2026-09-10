@@ -1,38 +1,82 @@
-# CS 5388 · Living Project Portal
+# ShareTab · Living Project Portal
 
-A single-page React application built for the CS 5388 Software Project Management course project. It serves as a "living" project artifact — a portal where the project charter, business case, hybrid delivery plan, sprint board, roadmap metrics, and AI governance documentation for the team's project all live side by side, staying interactive and up to date instead of sitting in static slide decks.
+The public portal for **ShareTab**, a roommate/group shared-expense tracker, built for
+CS 4390/5388 Software Project Management at UTEP.
+
+The portal is the course's major deliverable: a real, public site showing how the
+project was managed sprint by sprint. It grows across the semester — each sprint
+adds a page and its subpages, and earlier sprint pages stay live.
+
+**Repo:** https://github.com/riddle-me-ruben/project-spm
+
+## Site structure
+
+Routes map 1:1 to the pages the guidelines require, so any individual document
+can be linked and reviewed directly.
+
+```
+/                              Home — project, business problem, navigation
+/about                         About Us — member bios and ownership
+/sprint-1                      Sprint 1 hub
+/sprint-1/market-research      Market Research      (published)
+/sprint-1/business-strategy    Business Strategy    (placeholder)
+/sprint-1/project-charter      Project Charter      (placeholder)
+/sprint-1/contributions        Contributions & AI Disclosure (placeholder)
+/sprint-2                      Sprint 2             (placeholder)
+```
+
+The Sprint Retrospective and peer evaluations are **private** and go to Blackboard
+only. Nothing on this site links to them, and nothing should.
+
+## Status
+
+| Requirement | State |
+|---|---|
+| Home / About Us / sprint pages | Done |
+| Market Research (aggregate, deep dive, pivots) | Done — written from 13 discovery interviews |
+| Business Strategy | Placeholder |
+| Project Charter | Placeholder |
+| Contribution statements + AI disclosure | Placeholder |
+| Downloadable PDF per public document | **Not started** — see below |
+| Change log (Sprint 2 onward) | Placeholder on `/sprint-2` |
+
+### PDFs are still outstanding
+
+Every public document needs to exist *both* as readable text on the page and as a
+downloadable PDF linked from it, with that same PDF uploaded to Blackboard.
+
+Generated PDFs go in `public/docs/` and are wired up by flipping the `available`
+prop on the page's `<PdfLink>`:
+
+```jsx
+<PdfLink href="/docs/sprint1-market-research.pdf" available />
+```
+
+Until then `PdfLink` renders a visible "PDF pending" chip so the gap is obvious in
+review rather than silently missing.
 
 ## Key technologies
 
-- **React 18** (function components + hooks) for the UI
-- **Vite** as the dev server and build tool
-- **Tailwind CSS** for styling, with a custom Deep Navy Blue / Vibrant Orange theme and a `class`-based dark mode strategy
-- **Lucide React** for icons
-- Plain browser `localStorage` for persisting the Kanban board across page reloads — no backend is required for this project
-
-## Structure
-
-The app is organized into six independent, modular tabs, each its own component under `src/tabs/`:
-
-1. `CharterTab.jsx` — Project charter, stakeholder power/interest matrix, RACI grid
-2. `BusinessCaseTab.jsx` — ROI/cost-benefit analysis and COCOMO vs. Story Point estimation
-3. `PlanRiskTab.jsx` — Work breakdown structure, milestone timeline, categorized risk/RAID log
-4. `KanbanTab.jsx` — Drag-and-drop Kanban board with local persistence
-5. `RoadmapTopologyTab.jsx` — Agile roadmap, DORA metrics, team topology & staffing
-6. `AIGovernanceTab.jsx` — AI governance framework and data privacy/audit tracking
-
-A `ThemeContext` in `src/context/ThemeContext.jsx` drives the light/dark mode toggle from the navbar and persists the preference in `localStorage`.
+- **React 18** + **React Router 7** (`BrowserRouter`, real URLs per page)
+- **Vite 6** dev server and build
+- **Tailwind CSS 3**, custom navy/orange theme, `class`-based dark mode
+- **Lucide React** icons
+- No backend and no database — every page renders from data in `src/data/`
 
 ## Running locally
 
 ```bash
 npm install
-npm run dev
-```
-
-This starts the Vite dev server (default `http://localhost:5173`). To build a production bundle:
-
-```bash
-npm run build
+npm run dev      # http://localhost:5173
+npm run build    # production bundle into dist/
 npm run preview
 ```
+
+## Deployment
+
+Netlify, building `npm run build` and publishing `dist`. `netlify.toml` contains a
+catch-all `/* -> /index.html 200` redirect, which is **required** — without it,
+client-side routes 404 on hard refresh and any shared deep link breaks.
+
+Everything for a sprint must be deployed and live before that sprint's demo; the
+instructor checks deployment time against the due date.
