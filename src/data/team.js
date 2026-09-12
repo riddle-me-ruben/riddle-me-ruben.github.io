@@ -29,7 +29,7 @@ export const TEAM = [
     id: 'rjm',
     name: 'Ruben J. Martinez',
     initials: 'RM',
-    photo: null,
+    photo: '/team/ruben-martinez.png',
     owns: 'Repository & Configuration Manager',
     bio:
       'Ruben is a Master of Science in Computer Science candidate at The University of Texas at El Paso, with expertise in advanced algorithms and software engineering. His professional software engineering experience includes hands-on work within Scrum teams and the delivery of production systems. He oversees ShareTab\'s repository, configuration, and integration workflow.',
