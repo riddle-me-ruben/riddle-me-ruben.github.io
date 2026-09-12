@@ -1,70 +1,109 @@
-import { Link } from 'react-router-dom'
-import { Card, CardBody, SectionHeading, Prose, PdfLink, DocSection, Todo } from '../../components/ui.jsx'
+import { Card, CardBody, SectionHeading, DocSection, MarkerList, Table } from '../../components/ui.jsx'
+
+const IN_SCOPE = [
+  'Create user accounts',
+  'Add friends',
+  'Create groups',
+  'Split shared expenses',
+  'Set payment reminders',
+  'Connect third-party payment services',
+]
+
+const OUT_OF_SCOPE = ['Hold user money', 'Provide banking services', 'Offer loans', 'Support cryptocurrency']
+const DEFERRED = ['Automatic payments', 'Spending analytics']
+
+const ASSUMPTIONS = [
+  'Users have access to a web-connected device and at least one external payment method.',
+  'ShareTab records balances and settlement status but does not take custody of funds.',
+  'Group members enter shared-expense information accurately.',
+  'Third-party payment connections remain optional because users may settle with cash or another method.',
+  'Automatic payments and spending analytics remain outside the first product version.',
+]
+
+const STAKEHOLDERS = [
+  ['Friends, roommates, families, and social groups', 'Track shared expenses and settle balances with less coordination work', 'Primary users'],
+  ['Person who pays first', 'Record the expense, monitor repayment, and send reminders', 'High interest'],
+  ['Group members who owe a balance', 'Understand the amount owed and record settlement', 'High interest'],
+  ['Project team', 'Research, design, build, document, and maintain ShareTab', 'High influence'],
+  ['Course instructor and reviewers', 'Evaluate the project evidence and management record', 'High influence'],
+  ['Third-party payment services', 'Provide an external path for users to move money', 'External dependency'],
+]
 
 export default function ProjectCharter() {
   return (
     <article className="stack-xl">
       <header>
-        <p className="breadcrumb">
-          <Link to="/sprint-1">Sprint 1</Link> / Project Charter
-        </p>
+        <p className="breadcrumb">Sprint 1 / Project Charter</p>
         <SectionHeading
-          eyebrow="Sprint 1 · Public document"
+          eyebrow="Sprint 1"
           title="Project Charter"
-          description="Scope boundary, assumptions and stakeholder register. This is the anchor document for the rest of the portal."
+          description="ShareTab's product boundary, operating assumptions, stakeholders, and intended outcomes."
         />
-        <PdfLink href="/docs/sprint1-project-charter.pdf" available={false} />
       </header>
 
-      <Card variant="accent">
-        <CardBody>
-          <Prose>
-            <p>
-              <strong>Write this one carefully.</strong> A sloppy charter causes problems in every later sprint.
-              Start from the research findings — the market research already settled the target user and two of
-              the scope boundaries.
+      <DocSection title="Scope boundary">
+        <div className="grid gap-4 lg:grid-cols-3">
+          <Card variant="accent">
+            <CardBody>
+              <h3 className="mb-3 text-sm font-semibold text-neon-300">In scope</h3>
+              <MarkerList items={IN_SCOPE} />
+            </CardBody>
+          </Card>
+          <Card>
+            <CardBody>
+              <h3 className="mb-3 text-sm font-semibold text-ink-50">Out of scope</h3>
+              <MarkerList items={OUT_OF_SCOPE} tone="danger" />
+            </CardBody>
+          </Card>
+          <Card>
+            <CardBody>
+              <h3 className="mb-3 text-sm font-semibold text-ink-50">Deferred</h3>
+              <MarkerList items={DEFERRED} />
+            </CardBody>
+          </Card>
+        </div>
+      </DocSection>
+
+      <DocSection title="Assumptions">
+        <Card>
+          <CardBody>
+            <MarkerList items={ASSUMPTIONS} />
+          </CardBody>
+        </Card>
+      </DocSection>
+
+      <DocSection title="Stakeholder register">
+        <Table columns={['Stakeholder', 'Primary interest', 'Position']}>
+          {STAKEHOLDERS.map(([stakeholder, interest, position]) => (
+            <tr key={stakeholder}>
+              <td className="font-medium text-ink-50">{stakeholder}</td>
+              <td>{interest}</td>
+              <td>{position}</td>
+            </tr>
+          ))}
+        </Table>
+      </DocSection>
+
+      <DocSection title="Objective and outcomes">
+        <Card>
+          <CardBody>
+            <p className="text-sm leading-7 text-ink-200">
+              ShareTab will give groups one dependable record of shared expenses, unpaid balances, reminders,
+              and settlement status while keeping all movement of money outside the platform.
             </p>
-          </Prose>
-        </CardBody>
-      </Card>
-
-      <DocSection number="1." title="Scope boundary">
-        <Todo title="Scope boundary not yet written" owner="Brenden N. Ucol">
-          <p className="mb-2">
-            State what is in scope and, more importantly, what is explicitly out. The research already settled two
-            boundary questions:
-          </p>
-          <ul className="ml-5 list-disc space-y-1">
-            <li>Moving money is out of scope. ShareTab records how a debt was settled; it never touches funds.</li>
-            <li>The target is one-off social spending, not recurring rent and utilities.</li>
-          </ul>
-          <p className="mt-2">Both need to appear here as formal scope statements with the research cited.</p>
-        </Todo>
+          </CardBody>
+        </Card>
       </DocSection>
 
-      <DocSection number="2." title="Assumptions">
-        <Todo title="Assumptions register not yet written" owner="Brenden N. Ucol">
-          List every assumption the plan depends on, each testable and each owned. Cover user behaviour, team
-          availability across a semester, the technology stack, and what counts as done by end of term. Keep them
-          here rather than scattered through the risk log — an assumption that fails becomes a risk, and the two
-          need to be traceable to each other.
-        </Todo>
-      </DocSection>
-
-      <DocSection number="3." title="Stakeholder register">
-        <Todo title="Stakeholder register not yet written" owner="Brenden N. Ucol">
-          A register is a table, not a chart. For every stakeholder record: name or role, their interest, their
-          influence, what they need from the team, the engagement strategy, and the communication cadence with an
-          owner. A power/interest matrix is a useful summary alongside it but does not replace the register.
-        </Todo>
-      </DocSection>
-
-      <DocSection number="4." title="Objectives and measurable outcomes">
-        <Todo title="Objectives not yet written" owner="Brenden N. Ucol">
-          Baseline &rarr; target &rarr; assessment date for each outcome. These must agree with the success
-          measures on the Business Strategy page; if the two disagree, the charter wins and Business Strategy gets
-          corrected.
-        </Todo>
+      <DocSection title="Future monetization concept">
+        <Card>
+          <CardBody>
+            <p className="text-sm leading-7 text-ink-200">
+              A future premium tier may explore automatic payments and instant fee-free transfers. These concepts
+              are deferred and are not part of the first product version.
+            </p>
+          </CardBody>
+        </Card>
       </DocSection>
     </article>
   )

@@ -37,7 +37,6 @@ export default {
           900: neon(900),
           950: neon(950),
         },
-        todo: 'rgb(var(--signal-todo) / <alpha-value>)',
         danger: 'rgb(var(--signal-danger) / <alpha-value>)',
         info: 'rgb(var(--signal-info) / <alpha-value>)',
       },

@@ -1,4 +1,4 @@
-// Phase 2 market research — ShareTab.
+// Phase 2 market research - ShareTab.
 // Source: team interview packet, Sept 8-10 2026. Every claim below traces to a
 // real interview; quotes are reproduced verbatim. Do not add findings that are
 // not in the source packet.
@@ -92,7 +92,7 @@ export const AGGREGATE_FINDINGS = [
 export const TOP_PICK = {
   headline: 'The unmet need is the shared ledger, not the split calculator',
   statement:
-    'Across 13 interviews the arithmetic of splitting an expense was never the reported problem. What repeatedly failed was everything downstream of it: recording who owes what, remembering it days later, settling it across people who do not share a payment app, and asking for it without damaging the relationship. ShareTab should be built as a lightweight shared ledger with a low-friction reminder mechanism — explicitly not as another payment rail.',
+    'Across 13 interviews the arithmetic of splitting an expense was never the reported problem. What repeatedly failed was everything downstream of it: recording who owes what, remembering it days later, settling it across people who do not share a payment app, and asking for it without damaging the relationship. ShareTab should be built as a lightweight shared ledger with a low-friction reminder mechanism - explicitly not as another payment rail.',
   whyItRose: [
     {
       title: 'It is the only failure every finance interview shares',
@@ -123,34 +123,27 @@ export const TOP_PICK = {
 
 export const PIVOTS = [
   {
-    abandoned: 'That the core problem is splitting the bill',
-    why: 'Subjects produced a working division method in nearly every interview and never volunteered it as a pain point. One subject did the whole thing with the phone’s calculator app and considered the matter closed.',
-    changed: 'The product concept moved from a splitting calculator to a shared ledger. Split entry stays deliberately minimal.',
+    abandoned: 'Splitting was not the core problem',
+    why: 'Interviewees already divided expenses successfully with calculators, even splits, or itemized totals.',
+    changed: 'ShareTab became a shared ledger with simple split entry.',
     downstream: 'Charter scope · Business Strategy',
   },
   {
-    abandoned: 'That ShareTab needs payment integration',
-    why: 'Subjects were not looking for a new place to send money — they already hold two or three apps and switch between them willingly. What they lacked was a record of what was owed.',
-    changed: 'Payment rails are now explicitly out of scope. ShareTab records how a debt was settled; it never touches funds.',
+    abandoned: 'Payment integration was unnecessary',
+    why: 'People already switched among payment apps. The missing tool was a dependable record of the debt.',
+    changed: 'ShareTab records settlement but never moves or holds money.',
     downstream: 'Charter scope boundary',
   },
   {
-    abandoned: 'That roommates and recurring household bills are the primary segment',
-    why: 'Recurring bills turned out to be the most stable category in the corpus — fixed amounts, designated payers, auto-drafts and shared accounts. The instability was in one-off social spending: restaurants, trips, group orders and event tickets.',
-    changed: 'The target user shifted from roommates splitting rent to social groups splitting irregular one-off expenses. The working name is retained for continuity.',
+    abandoned: 'Roommates were too narrow a segment',
+    why: 'Recurring bills were usually fixed or automated. Irregular social expenses caused more confusion.',
+    changed: 'The target expanded from roommates to groups sharing one-off expenses.',
     downstream: 'Charter stakeholder register · Business Strategy',
   },
   {
-    abandoned: 'That users want automated, aggressive debt collection',
-    why: 'The corpus shows the opposite instinct. Subjects soften or drop requests to protect relationships, and one described making the balance a gift specifically to release the burden from both sides.',
-    changed: 'Reminders are user-initiated and private by default, and forgiving a balance is treated as a normal action rather than a failure state.',
+    abandoned: 'Aggressive collection conflicted with user behavior',
+    why: 'People delayed or abandoned requests to avoid straining relationships.',
+    changed: 'Reminders are private and user-initiated, and balances can be forgiven.',
     downstream: 'Charter scope · feature backlog',
-  },
-  {
-    abandoned: 'Project Idea 2 — UTEP Course Auto Advisor and Load Balancer',
-    why: '[TODO] — a team member must write the comparative go/no-go reasoning. Course policy prohibits AI use for go/no-go reasoning in any sprint deliverable, so this has to be written by hand and defended in Q&A.',
-    changed: '[TODO] — record the date and forum in which the team made the final selection.',
-    downstream: 'All Sprint 1 documents',
-    isTodo: true,
   },
 ]

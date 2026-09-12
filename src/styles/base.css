@@ -1,5 +1,5 @@
 /* ==========================================================================
-   base.css — element defaults
+   base.css - element defaults
    ========================================================================== */
 
 @layer base {
@@ -26,7 +26,7 @@
     @apply text-neon-300;
   }
 
-  /* Visible keyboard focus everywhere — the site is graded on accessibility
+  /* Visible keyboard focus everywhere - the site is graded on accessibility
      as much as looks, and the neon ring is legible on every surface. */
   :focus-visible {
     @apply outline-none ring-2 ring-neon-500 ring-offset-2 ring-offset-ink-950;

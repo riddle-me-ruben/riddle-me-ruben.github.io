@@ -1,132 +1,127 @@
-import { Link } from 'react-router-dom'
-import {
-  Card,
-  CardBody,
-  Badge,
-  SectionHeading,
-  Prose,
-  DocSection,
-  Quote,
-  PdfLink,
-  MarkerList,
-} from '../../components/ui.jsx'
-import { RESEARCH, AGGREGATE_FINDINGS, TOP_PICK, PIVOTS } from '../../data/research.js'
+import { Card, CardBody, Badge, SectionHeading, Prose, DocSection, Quote, MarkerList } from '../../components/ui.jsx'
+import { PHASE1_RESEARCH } from '../../data/phase1Research.js'
+import { TOP_PICK, PIVOTS } from '../../data/research.js'
+
+const KEY_FINDINGS = [
+  {
+    title: 'Balances were not reliably tracked',
+    count: '12 of 13',
+    body: 'Participants relied on memory, messages, handwritten notes, or old transactions to reconstruct what was owed.',
+    quote: 'I do not write it down and just rely on people remembering, so I probably have a lot of unpaid stuff.',
+  },
+  {
+    title: 'Payment apps did not match',
+    count: '10 of 13',
+    body: 'People installed another app, used cash, or routed money through someone who had both services.',
+    quote: 'I had to send the money to another friend who had Zelle and Venmo, and they then sent the money to the person who has Venmo.',
+  },
+  {
+    title: 'Collection created social friction',
+    count: '8 of 13',
+    body: 'Reminders were delayed and private. Smaller debts were often abandoned to avoid an awkward request.',
+    quote: 'I value people’s company more, so I do not really keep track unless it is a large amount, maybe over $100.',
+  },
+  {
+    title: 'Recurring bills were not the main pain point',
+    count: '6 of 13',
+    body: 'Fixed household bills were often planned or automated. Irregular social expenses caused more confusion.',
+    quote: 'It is a recurring payment, so a fixed amount is already agreed upon.',
+  },
+]
 
 export default function MarketResearch() {
   return (
     <article className="stack-xl">
       <header>
-        <p className="breadcrumb">
-          <Link to="/sprint-1">Sprint 1</Link> / Market Research
-        </p>
+        <p className="breadcrumb">Sprint 1 / Market Research</p>
         <SectionHeading
-          eyebrow="Sprint 1 · Public document"
+          eyebrow="Sprint 1"
           title="Market Research"
-          description={`Phase 2 customer discovery for ShareTab. ${RESEARCH.total} interviews were conducted across two candidate ideas between ${RESEARCH.window}; the ${RESEARCH.finance} conducted on the finance idea are synthesized here and drove the final project selection.`}
+          description="How five initial concepts narrowed into ShareTab and how the interviews shaped its direction."
         />
-        <PdfLink href="/docs/sprint1-market-research.pdf" available={false} />
       </header>
 
-      {/* ---- Required: aggregate findings ---- */}
-      <DocSection number="1." title="Aggregate findings">
-        <Prose className="mb-5">
-          <p>
-            Read together, the finance interviews tell a more specific story than the one we started with.{' '}
-            <strong>The arithmetic of splitting a bill is not what breaks. What breaks is everything that
-            happens after the split</strong> — recording the debt, remembering it, settling it across people who
-            do not share a payment app, and asking for it without straining the relationship. Subjects had
-            reliable ways to divide a check and no reliable way to remember it three days later.
-          </p>
-          <p>
-            The patterns below are ordered by how consistently they appeared, each with the number of finance
-            interviews it surfaced in and the verbatim quotes that support it.
-          </p>
-        </Prose>
-
-        <div className="space-y-4">
-          {AGGREGATE_FINDINGS.map((f, i) => (
-            <Card key={f.title}>
+      <DocSection title="Initial project concepts">
+        <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          {PHASE1_RESEARCH.concepts.map((concept, index) => (
+            <Card key={concept.name}>
               <CardBody>
-                <div className="mb-2 flex items-start justify-between gap-3">
-                  <h4 className="text-sm font-semibold text-ink-50">
-                    <span className="mr-1.5 text-neon-400">{i + 1}.</span>
-                    {f.title}
-                  </h4>
-                  <Badge tone="muted">{f.seenIn} of {RESEARCH.finance}</Badge>
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <Badge tone="muted">{concept.area}</Badge>
+                  <span className="text-xl font-bold text-neon-400">{index + 1}</span>
                 </div>
-                <Prose className="mb-3">
-                  <p>{f.body}</p>
-                </Prose>
-                {f.quotes.map((q, qi) => (
-                  <Quote key={qi} cite="Interview subject, verbatim">
-                    {q}
-                  </Quote>
-                ))}
+                <h3 className="mb-2 text-lg font-semibold text-ink-50">{concept.name}</h3>
+                <p className="text-sm leading-6 text-ink-300">{concept.description}</p>
+                <div className="mt-4 border-t border-ink-700 pt-4">
+                  <p className="label mb-1">{concept.selected ? 'Why we continued' : 'Why we moved away'}</p>
+                  <p className="text-sm leading-6 text-ink-300">{concept.decision}</p>
+                </div>
               </CardBody>
             </Card>
           ))}
         </div>
       </DocSection>
 
-      {/* ---- Required: top pick, deep dive ---- */}
-      <DocSection number="2." title="Top pick, deep dive">
-        <Card variant="accent">
+      <DocSection title="Aggregate findings">
+        <Card variant="accent" className="mb-4">
           <CardBody>
-            <h4 className="mb-2 text-base font-semibold text-neon-300">{TOP_PICK.headline}</h4>
+            <h3 className="mb-2 text-xl font-semibold text-neon-300">
+              People could divide an expense, but they could not reliably remember or track who owed whom and how much.
+            </h3>
             <Prose>
-              <p>{TOP_PICK.statement}</p>
+              <p>
+                The repeated problem was maintaining a dependable record after the split, especially when several
+                purchases, people, and payment apps were involved.
+              </p>
             </Prose>
           </CardBody>
         </Card>
 
-        <h4 className="label mb-3 mt-6">What made it rise to the top</h4>
         <div className="grid gap-4 sm:grid-cols-2">
-          {TOP_PICK.whyItRose.map((r) => (
-            <Card key={r.title}>
+          {KEY_FINDINGS.map((finding) => (
+            <Card key={finding.title}>
               <CardBody>
-                <h5 className="mb-1.5 text-sm font-semibold text-ink-50">{r.title}</h5>
-                <p className="text-sm leading-6 text-ink-300">{r.body}</p>
+                <div className="mb-2 flex items-start justify-between gap-3">
+                  <h3 className="text-base font-semibold text-ink-50">{finding.title}</h3>
+                  <Badge tone="muted">{finding.count}</Badge>
+                </div>
+                <p className="text-sm leading-6 text-ink-300">{finding.body}</p>
+                <Quote cite="Interview subject, verbatim">{finding.quote}</Quote>
               </CardBody>
             </Card>
           ))}
         </div>
+      </DocSection>
 
-        <h4 className="label mb-3 mt-6">Evidence backing it</h4>
-        <Card>
+      <DocSection title="Top pick">
+        <Card variant="accent">
           <CardBody>
-            <MarkerList items={TOP_PICK.evidence} />
+            <p className="eyebrow">Product direction</p>
+            <h3 className="mb-2 text-xl font-semibold text-neon-300">{TOP_PICK.headline}</h3>
+            <Prose><p>{TOP_PICK.statement}</p></Prose>
+          </CardBody>
+        </Card>
+
+        <Card className="mt-4">
+          <CardBody>
+            <p className="label mb-3">Why it stood out</p>
+            <MarkerList items={TOP_PICK.whyItRose.map((reason) => `${reason.title}: ${reason.body}`)} />
           </CardBody>
         </Card>
       </DocSection>
 
-      {/* ---- Required: what didn't work / pivots ---- */}
-      <DocSection number="3." title="What didn't work / what we pivoted from">
-        <Prose className="mb-5">
-          <p>
-            Four assumptions we carried into Phase 2 did not survive contact with the interviews, and one of two
-            candidate ideas was dropped. Each entry records what we abandoned, why it did not hold, what changed
-            as a result, and which documents the change affects downstream.
-          </p>
-        </Prose>
-
-        <div className="space-y-4">
-          {PIVOTS.map((p) => (
-            <Card key={p.abandoned} variant={p.isTodo ? 'todo' : 'default'}>
-              <CardBody>
-                <div className="mb-3 flex items-start justify-between gap-3">
-                  <h4 className="text-sm font-semibold text-ink-50">{p.abandoned}</h4>
-                  <Badge tone={p.isTodo ? 'todo' : 'danger'}>{p.isTodo ? '[TODO]' : 'Pivoted'}</Badge>
-                </div>
-
-                <PivotRow label="Why it didn't hold" value={p.why} />
-                <PivotRow label="What changed as a result" value={p.changed} />
-
-                <div className="mt-3">
-                  <p className="label mb-1">Downstream impact</p>
-                  <Badge tone="muted">{p.downstream}</Badge>
-                </div>
-              </CardBody>
-            </Card>
+      <DocSection title="What did not work and what changed">
+        <div className="space-y-3">
+          {PIVOTS.map((pivot) => (
+            <details key={pivot.abandoned} className="research-disclosure">
+              <summary>
+                <span>{pivot.abandoned}</span>
+              </summary>
+              <div className="research-disclosure-body grid gap-4 lg:grid-cols-2">
+                <PivotDetail label="Why it did not hold" value={pivot.why} />
+                <PivotDetail label="Resulting direction" value={pivot.changed} />
+              </div>
+            </details>
           ))}
         </div>
       </DocSection>
@@ -134,12 +129,11 @@ export default function MarketResearch() {
   )
 }
 
-function PivotRow({ label, value }) {
-  const isTodo = value.startsWith('[TODO]')
+function PivotDetail({ label, value }) {
   return (
-    <div className="mb-3">
+    <div>
       <p className="label mb-1">{label}</p>
-      <p className={`text-sm leading-6 ${isTodo ? 'todo-tag !font-normal' : 'text-ink-200'}`}>{value}</p>
+      <p className="text-sm leading-6 text-ink-200">{value}</p>
     </div>
   )
 }

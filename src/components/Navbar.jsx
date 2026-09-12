@@ -18,7 +18,16 @@ export const NAV = [
       { to: '/sprint-1/contributions', label: 'Contributions' },
     ],
   },
-  { to: '/sprint-2', label: 'Sprint 2' },
+  {
+    to: '/sprint-2',
+    label: 'Sprint 2',
+    children: [
+      { to: '/sprint-2/business-case', label: 'Business Case' },
+      { to: '/sprint-2/estimation-appendix', label: 'Estimation Appendix' },
+      { to: '/sprint-2/roi-analysis', label: 'ROI Analysis' },
+      { to: '/sprint-2/change-log', label: 'Change Log' },
+    ],
+  },
 ]
 
 export default function Navbar() {
@@ -44,13 +53,14 @@ export default function Navbar() {
           {NAV.map((item) =>
             item.children ? (
               <div key={item.to} className="group relative">
-                <NavLink
-                  to={item.to}
+                <button
+                  type="button"
+                  aria-haspopup="true"
                   className={`nav-link ${pathname.startsWith(item.to) ? 'nav-link-active' : ''}`}
                 >
                   {item.label}
                   <ChevronDown size={14} />
-                </NavLink>
+                </button>
                 <div className="invisible absolute left-0 top-full z-50 w-56 pt-1 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   <div className="nav-dropdown">
                     {item.children.map((c) => (
@@ -95,14 +105,20 @@ export default function Navbar() {
           <div className="flex flex-col gap-1 pb-2">
             {NAV.map((item) => (
               <div key={item.to}>
-                <NavLink
-                  to={item.to}
-                  end={item.end}
-                  onClick={() => setMobileOpen(false)}
-                  className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
-                >
-                  {item.label}
-                </NavLink>
+                {item.children ? (
+                  <p className={`nav-link cursor-default ${pathname.startsWith(item.to) ? 'nav-link-active' : ''}`}>
+                    {item.label}
+                  </p>
+                ) : (
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    onClick={() => setMobileOpen(false)}
+                    className={({ isActive }) => `nav-link ${isActive ? 'nav-link-active' : ''}`}
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
                 {item.children && (
                   <div className="ml-3 border-l border-ink-700 pl-3">
                     {item.children.map((c) => (

@@ -12,9 +12,8 @@ export const TEAM = [
     name: 'Amichai A. Fernandez',
     initials: 'AF',
     photo: null,
-    owns: 'Portal build & deployment · sprint cadence',
-    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
-    bioTodo: true,
+    owns: 'Market Research Lead',
+    bio: '',
     interviews: 5,
   },
   {
@@ -22,9 +21,8 @@ export const TEAM = [
     name: 'Sebastian A. Ochoa',
     initials: 'SO',
     photo: null,
-    owns: 'Business Strategy · stakeholder register',
-    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
-    bioTodo: true,
+    owns: 'Scrum Master',
+    bio: '',
     interviews: 5,
   },
   {
@@ -32,9 +30,9 @@ export const TEAM = [
     name: 'Ruben J. Martinez',
     initials: 'RM',
     photo: null,
-    owns: 'Repository & architecture · market research lead',
-    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
-    bioTodo: true,
+    owns: 'Repository & Configuration Manager',
+    bio:
+      'Ruben is a Master of Science in Computer Science candidate at The University of Texas at El Paso, with expertise in advanced algorithms and software engineering. His professional software engineering experience includes hands-on work within Scrum teams and the delivery of production systems. He oversees ShareTab\'s repository, configuration, and integration workflow.',
     interviews: 5,
   },
   {
@@ -42,9 +40,8 @@ export const TEAM = [
     name: 'Sebastian M. Lucero-Chavez',
     initials: 'SL',
     photo: null,
-    owns: 'Interview synthesis · quality review',
-    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
-    bioTodo: true,
+    owns: 'Full-Stack Developer',
+    bio: '',
     interviews: 5,
   },
   {
@@ -52,9 +49,8 @@ export const TEAM = [
     name: 'Brenden N. Ucol',
     initials: 'BU',
     photo: null,
-    owns: 'Project Charter · comparative research',
-    bio: '[TODO] — 2-3 sentences: year and major, relevant background, and what you own on this project.',
-    bioTodo: true,
+    owns: 'Documentation Lead',
+    bio: '',
     interviews: 5,
   },
 ]
@@ -68,8 +64,8 @@ export const PROJECT = {
   subtitle: 'Roommate Budget Tracker',
   // Guidelines: Home needs a one-sentence description of the business problem.
   oneSentenceProblem:
-    'When groups split shared expenses, the money is easy to divide but almost impossible to track — so balances are forgotten, chased awkwardly across mismatched payment apps, or quietly written off.',
-  course: 'CS 4390 / 5388 — Software Project Management',
+    'When groups split shared expenses, dividing the money is easy. Tracking each balance is not. People forget what they owe, chase payments awkwardly across mismatched apps, or quietly write debts off.',
+  course: 'CS 4390 / 5388 - Software Project Management',
   institution: 'The University of Texas at El Paso',
   repoUrl: 'https://github.com/riddle-me-ruben/project-spm',
 }

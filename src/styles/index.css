@@ -1,5 +1,5 @@
 /* ==========================================================================
-   index.css — the only stylesheet the app imports.
+   index.css - the only stylesheet the app imports.
 
    Every @import must come first (postcss rule), so the Tailwind directives
    live in tailwind.css rather than inline here. Order is meaningful:

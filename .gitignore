@@ -2,4 +2,6 @@ node_modules/
 
 # local scratch
 .smoke/
+tmp/
 dist/
+node_modules/

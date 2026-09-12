@@ -1,5 +1,5 @@
 /* ==========================================================================
-   theme.css — design tokens
+   theme.css - design tokens
    Single source of truth for colour. Values are raw RGB channels so Tailwind
    can apply opacity modifiers (bg-surface/60) via <alpha-value>.
    Palette: near-black greys + a neon green accent.
@@ -34,9 +34,8 @@
   --neon-50:  234 255 241;
 
   /* --- Semantic signals -------------------------------------------------- */
-  --signal-todo: 250 204 21;      /* amber — unwritten content */
-  --signal-danger: 248 113 113;   /* red   — prohibited / risk  */
-  --signal-info: 125 211 252;     /* blue  — neutral note       */
+  --signal-danger: 248 113 113;   /* red   - prohibited / risk  */
+  --signal-info: 125 211 252;     /* blue  - neutral note       */
 
   /* --- Elevation --------------------------------------------------------- */
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.35);

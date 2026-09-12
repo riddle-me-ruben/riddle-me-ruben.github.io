@@ -1,54 +1,66 @@
-import { Link } from 'react-router-dom'
-import { SectionHeading, Prose, PdfLink, DocSection, Todo } from '../../components/ui.jsx'
+import { Card, CardBody, SectionHeading, DocSection, MarkerList } from '../../components/ui.jsx'
+
+const CHAIN = [
+  {
+    label: 'Strategy',
+    body:
+      'Create a neutral coordination layer for shared expenses. ShareTab keeps balances, reminders, and settlement records together while letting each person continue using their preferred payment service.',
+  },
+  {
+    label: 'Objective',
+    body:
+      'Give friends, roommates, families, and groups one dependable record of who owes what, who has paid, and which balances still need attention.',
+  },
+  {
+    label: 'Justification',
+    body:
+      'The interviews repeatedly showed that calculating a split is manageable, but tracking balances over time is not. Participants relied on memory, messages, transaction histories, handwritten notes, and payment intermediaries. ShareTab addresses that repeated coordination failure without becoming another payment service.',
+  },
+  {
+    label: 'Scope',
+    body:
+      'The first product version covers accounts, friends, groups, shared expenses, reminders, and connections to third-party payment services. It does not hold money or provide banking, loans, or cryptocurrency services.',
+  },
+]
+
+const SUCCESS_OUTCOMES = [
+  'A group can create and maintain one shared record of expenses and balances.',
+  'Members can see unpaid and settled balances without reconstructing them from messages or payment histories.',
+  'A member can send a private payment reminder from the shared record.',
+  'Users can record or complete settlement through a third-party payment service without ShareTab holding funds.',
+]
 
 export default function BusinessStrategy() {
   return (
     <article className="stack-xl">
       <header>
-        <p className="breadcrumb">
-          <Link to="/sprint-1">Sprint 1</Link> / Business Strategy
-        </p>
+        <p className="breadcrumb">Sprint 1 / Business Strategy</p>
         <SectionHeading
-          eyebrow="Sprint 1 · Public document"
+          eyebrow="Sprint 1"
           title="Business Strategy"
-          description="The strategy-to-project chain: why this project earns the right to exist, and what business objective it serves."
+          description="The strategy-to-project chain connects the research evidence to ShareTab's objective and product boundary."
         />
-        <PdfLink href="/docs/sprint1-business-strategy.pdf" available={false} />
       </header>
 
-      <Prose>
-        <p>
-          This document connects a business objective to this specific project, so a reader can follow the chain
-          from why anything needs to be built down to why this build. Write it against the market research
-          findings, not independently of them.
-        </p>
-      </Prose>
-
-      <DocSection number="1." title="Strategy-to-project chain">
-        <Todo title="The chain has not been written yet" owner="Sebastian A. Ochoa">
-          <p className="mb-2">Write each link in order, so the chain is visible on the page:</p>
-          <ol className="ml-5 list-decimal space-y-1">
-            <li>The business objective this serves.</li>
-            <li>The gap standing between today and that objective.</li>
-            <li>Why ShareTab specifically closes that gap, citing the research findings.</li>
-            <li>What is measurably true at the end of the semester if this succeeds.</li>
-            <li>The alternatives considered, and why they were rejected.</li>
-          </ol>
-        </Todo>
+      <DocSection title="Strategy-to-project chain">
+        <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+          {CHAIN.map((step) => (
+            <Card key={step.label} variant={step.label === 'Strategy' ? 'accent' : 'default'}>
+              <CardBody>
+                <h3 className="mb-2 text-base font-semibold text-ink-50">{step.label}</h3>
+                <p className="text-sm leading-6 text-ink-300">{step.body}</p>
+              </CardBody>
+            </Card>
+          ))}
+        </div>
       </DocSection>
 
-      <DocSection number="2." title="Business objective served">
-        <Todo title="Objective not yet defined" owner="Sebastian A. Ochoa">
-          State the single business objective this project serves, with the measure that tells you it was met.
-          Keep it to one — a project serving four objectives usually serves none of them.
-        </Todo>
-      </DocSection>
-
-      <DocSection number="3." title="Success measures">
-        <Todo title="Measures not yet defined" owner="Sebastian A. Ochoa">
-          Baseline &rarr; target for each measure, with the date it is assessed. These should trace to the market
-          research rather than be invented; the interviews give you real behaviour to measure against.
-        </Todo>
+      <DocSection title="Success outcomes">
+        <Card>
+          <CardBody>
+            <MarkerList items={SUCCESS_OUTCOMES} />
+          </CardBody>
+        </Card>
       </DocSection>
     </article>
   )

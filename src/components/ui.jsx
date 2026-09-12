@@ -1,4 +1,4 @@
-// Shared visual primitives. Styling lives in src/styles/components.css — these
+// Shared visual primitives. Styling lives in src/styles/components.css - these
 // components pick a semantic class rather than carrying long utility strings,
 // so a theme change happens in CSS and not across every page.
 
@@ -6,7 +6,6 @@ export function Card({ children, variant = 'default', className = '', ...props }
   const variants = {
     default: 'card card-hover',
     accent: 'card card-accent',
-    todo: 'card-todo',
     danger: 'card-danger',
     flat: 'card',
   }
@@ -46,7 +45,6 @@ export function CardBody({ children, className = '' }) {
 const badgeTones = {
   neon: 'badge-neon',
   muted: 'badge-muted',
-  todo: 'badge-todo',
   danger: 'badge-danger',
   done: 'badge-done',
 }
@@ -65,7 +63,7 @@ export function SectionHeading({ eyebrow, title, description }) {
     <div className="mb-5">
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h2 className="text-xl font-bold text-ink-50 sm:text-2xl">{title}</h2>
-      {description && <p className="mt-2 max-w-3xl text-sm leading-6 text-ink-300">{description}</p>}
+      {description && <p className="mt-2 max-w-5xl text-sm leading-6 text-ink-300">{description}</p>}
     </div>
   )
 }
@@ -96,7 +94,7 @@ export function Quote({ children, cite }) {
 }
 
 export function MarkerList({ items, tone = 'neon' }) {
-  const toneClass = { neon: '', danger: 'marker-list-danger', todo: 'marker-list-todo' }
+  const toneClass = { neon: '', danger: 'marker-list-danger' }
   return (
     <ul className={`marker-list ${toneClass[tone] || ''}`}>
       {items.map((item, i) => (
@@ -127,32 +125,10 @@ export function Table({ columns, children }) {
 // PDF. Until the file is generated this renders as a visible pending chip
 // rather than a link that 404s.
 export function PdfLink({ href, label = 'Download PDF', available = false }) {
-  if (!available) {
-    return (
-      <span className="pdf-pending" title="PDF not yet generated">
-        <span className="todo-tag">[TODO]</span>
-        PDF
-      </span>
-    )
-  }
+  if (!available) return null
   return (
     <a href={href} download className="btn btn-primary btn-sm">
       {label}
     </a>
-  )
-}
-
-// Marks unwritten content. Every instance carries a literal [TODO] so the gaps
-// are greppable and can never be mistaken for finished work.
-export function Todo({ title, owner, children }) {
-  return (
-    <div className="card-todo p-4">
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="todo-tag">[TODO]</span>
-        {owner && <Badge tone="todo">{owner}</Badge>}
-      </div>
-      {title && <h3 className="mb-1.5 text-base font-semibold text-ink-50">{title}</h3>}
-      <div className="todo-body">{children}</div>
-    </div>
   )
 }

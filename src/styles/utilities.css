@@ -1,10 +1,10 @@
 /* ==========================================================================
-   utilities.css — small helpers that don't belong to a component
+   utilities.css - small helpers that don't belong to a component
    ========================================================================== */
 
 @layer utilities {
   .page {
-    @apply mx-auto w-full max-w-5xl px-4 sm:px-6;
+    @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 xl:px-8;
   }
 
   .stack-lg > * + * {
