@@ -20,9 +20,10 @@ export const TEAM = [
     id: 'sao',
     name: 'Sebastian A. Ochoa',
     initials: 'SO',
-    photo: null,
+    photo: '/team/sebastian-ochoa.png',
     owns: 'Scrum Master',
-    bio: '',
+    bio:
+      'Sebastian is a Master of Science in Computer Science candidate at The University of Texas at El Paso, concentrating in cybersecurity. He works as a Lead Cybersecurity Operations Technician at Castile Security, where his professional experience spans security operations and shipping production tooling on a small team. He runs ShareTab\'s sprint cadence, keeping the team\'s ceremonies, backlog, and delivery schedule on track.',
     interviews: 5,
   },
   {
