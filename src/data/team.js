@@ -13,7 +13,7 @@ export const TEAM = [
     initials: 'AF',
     photo: null,
     owns: 'Market Research Lead',
-    bio: '',
+    bio: 'Amichai is a prospective Bachelor of Science in Computer Science at The University of Texas at El Paso. He posses hands-on experience in full-stack software development and expertise in a variety of web technologies.',
     interviews: 5,
   },
   {
