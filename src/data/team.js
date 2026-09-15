@@ -42,7 +42,7 @@ export const TEAM = [
     initials: 'SL',
     photo: null,
     owns: 'Full-Stack Developer',
-    bio: '',
+    bio: 'Sebastian is a Senior fast-track student pursuing a Bachelors of Science in Computer Science with Concentration in Secure Cyber Systems from the University of Texas at El Paso. He currently works at UTEP\'s Cyber Security Clinic as a Clinic Associate where he provides affordable security services to local organizations. He is a fullstack developer for ShareTab, idk what he owns.',
     interviews: 5,
   },
   {
