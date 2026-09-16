@@ -13,7 +13,7 @@ export const TEAM = [
     initials: 'AF',
     photo: null,
     owns: 'Market Research Lead',
-    bio: '',
+    bio: 'Amichai is a prospective Bachelor of Science in Computer Science at The University of Texas at El Paso. He posses hands-on experience in full-stack software development and expertise in a variety of web technologies.',
     interviews: 5,
   },
   {
@@ -40,7 +40,7 @@ export const TEAM = [
     id: 'smlc',
     name: 'Sebastian M. Lucero-Chavez',
     initials: 'SL',
-    photo: null,
+    photo: '/team/sebastian-lucero-chavez.JPG',
     owns: 'Full-Stack Developer',
     bio: 'Sebastian is a Senior fast-track student pursuing a Bachelors of Science in Computer Science with Concentration in Secure Cyber Systems from the University of Texas at El Paso. He currently works at UTEP\'s Cyber Security Clinic as a Clinic Associate where he provides affordable security services to local organizations. He is a fullstack developer for ShareTab, idk what he owns.',
     interviews: 5,
@@ -49,9 +49,10 @@ export const TEAM = [
     id: 'bnu',
     name: 'Brenden N. Ucol',
     initials: 'BU',
-    photo: null,
+    photo: '/team/brenden-ucol.png',
     owns: 'Documentation Lead',
-    bio: '',
+    bio:
+      'Brenden is a senior student pursuing a Bachelor of Science at The University of Texas at El Paso, with a passion for software engineering and app development. He manages ShareTab\'s documentation throughout the project\'s initiation.',
     interviews: 5,
   },
 ]
