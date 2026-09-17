@@ -50,6 +50,7 @@ export const TEAM = [
     name: 'Brenden N. Ucol',
     initials: 'BU',
     photo: '/team/brenden-ucol.png',
+    photoPosition: 'center top',
     owns: 'Documentation Lead',
     bio:
       'Brenden is a senior student pursuing a Bachelor of Science at The University of Texas at El Paso, with a passion for software engineering and app development. He manages ShareTab\'s documentation throughout the project\'s initiation.',
