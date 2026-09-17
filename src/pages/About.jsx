@@ -4,7 +4,15 @@ import { TEAM, PROJECT } from '../data/team.js'
 function Avatar({ member }) {
   return (
     <div className="avatar avatar-lg">
-      {member.photo ? <img src={member.photo} alt={member.name} /> : <span>{member.initials}</span>}
+      {member.photo ? (
+        <img
+          src={member.photo}
+          alt={member.name}
+          style={{ objectFit: 'cover', objectPosition: member.photoPosition || 'center' }}
+        />
+      ) : (
+        <span>{member.initials}</span>
+      )}
     </div>
   )
 }
