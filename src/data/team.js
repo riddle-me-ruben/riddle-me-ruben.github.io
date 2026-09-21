@@ -11,7 +11,7 @@ export const TEAM = [
     id: 'aaf',
     name: 'Amichai A. Fernandez',
     initials: 'AF',
-    photo: null,
+    photo: '/team/amichai-fernandez.png',
     owns: 'Market Research Lead',
     bio: 'Amichai is a prospective Bachelor of Science in Computer Science at The University of Texas at El Paso. He posses hands-on experience in full-stack software development and expertise in a variety of web technologies.',
     interviews: 5,
