@@ -4,4 +4,5 @@ node_modules/
 .smoke/
 tmp/
 dist/
+output/
 node_modules/
