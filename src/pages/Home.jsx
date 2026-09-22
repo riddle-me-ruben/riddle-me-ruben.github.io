@@ -99,6 +99,16 @@ export default function Home() {
           </CardBody>
         </Card>
       </section>
+
+      <section className="border-t border-ink-800 pt-5">
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-400">AI Use Disclosure</p>
+        <p className="max-w-5xl text-xs leading-5 text-ink-500">
+          OpenAI Codex was used to support the development and revision of the ShareTab Living Project Portal,
+          including content organization, wording, React troubleshooting, deployment configuration, and the PDF
+          download feature. All generated work was reviewed and revised for accuracy. The interview data, project
+          decisions, and team contributions came from the team and were not invented by AI.
+        </p>
+      </section>
     </div>
   )
 }
