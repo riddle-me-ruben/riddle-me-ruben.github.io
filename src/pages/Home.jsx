@@ -7,7 +7,6 @@ const SPRINT1_PAGES = [
   { to: '/sprint-1/market-research', label: 'Market Research' },
   { to: '/sprint-1/business-strategy', label: 'Business Strategy' },
   { to: '/sprint-1/project-charter', label: 'Project Charter' },
-  { to: '/sprint-1/contributions', label: 'Contributions & AI Disclosure' },
 ]
 
 const SPRINT2_PAGES = [
