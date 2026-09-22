@@ -7,17 +7,18 @@ const IN_SCOPE = [
   'Split shared expenses',
   'Set payment reminders',
   'Connect third-party payment services',
+  'Spending analytics (paid)',
 ]
 
 const OUT_OF_SCOPE = ['Hold user money', 'Provide banking services', 'Offer loans', 'Support cryptocurrency']
-const DEFERRED = ['Automatic payments', 'Spending analytics']
+const DEFERRED = ['AI insights (paid)', 'User profile statistics (paid)']
 
 const ASSUMPTIONS = [
   'Users have access to a web-connected device and at least one external payment method.',
   'ShareTab records balances and settlement status but does not take custody of funds.',
   'Group members enter shared-expense information accurately.',
   'Third-party payment connections remain optional because users may settle with cash or another method.',
-  'Automatic payments and spending analytics remain outside the first product version.',
+  'Spending analytics is included as a paid feature. AI insights and user profile statistics remain deferred.',
 ]
 
 const STAKEHOLDERS = [
@@ -99,8 +100,8 @@ export default function ProjectCharter() {
         <Card>
           <CardBody>
             <p className="text-sm leading-7 text-ink-200">
-              A future premium tier may explore automatic payments and instant fee-free transfers. These concepts
-              are deferred and are not part of the first product version.
+              ShareTab's paid offering includes spending analytics. AI insights and user profile statistics may be
+              added later, while instant fee-free transfers remain outside the first product version.
             </p>
           </CardBody>
         </Card>
