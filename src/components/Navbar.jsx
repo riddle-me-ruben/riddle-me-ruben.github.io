@@ -60,7 +60,7 @@ export default function Navbar() {
                   {item.label}
                   <ChevronDown size={14} />
                 </button>
-                <div className="invisible absolute left-0 top-full z-50 w-56 pt-1 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute right-0 top-full z-50 w-56 pt-1 opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   <div className="nav-dropdown">
                     {item.children.map((c) => (
                       <NavLink

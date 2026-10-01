@@ -8,9 +8,9 @@ import MarketResearch from './pages/sprint1/MarketResearch.jsx'
 import BusinessStrategy from './pages/sprint1/BusinessStrategy.jsx'
 import ProjectCharter from './pages/sprint1/ProjectCharter.jsx'
 import Contributions from './pages/sprint1/Contributions.jsx'
-import Sprint2Placeholder from './pages/sprint2/Sprint2Placeholder.jsx'
 import BusinessCase from './pages/sprint2/BusinessCase.jsx'
 import EstimationAppendix from './pages/sprint2/EstimationAppendix.jsx'
+import Sprint2Placeholder from './pages/sprint2/Sprint2Placeholder.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
