@@ -78,8 +78,10 @@ The theme is dark-only. There is no light mode and no theme toggle.
 
 ## Deployment
 
-`netlify.toml` has a catch-all `/* -> /index.html 200` redirect. It is load
-bearing — remove it and every route except `/` 404s on refresh.
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push
+to `main`. Its `cp dist/index.html dist/404.html` step is load bearing — GitHub
+Pages has no rewrites, so without it every route except `/` 404s on refresh and
+shared deep links break.
 
 ## Verifying a change
 

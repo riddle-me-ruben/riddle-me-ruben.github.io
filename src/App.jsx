@@ -9,6 +9,8 @@ import BusinessStrategy from './pages/sprint1/BusinessStrategy.jsx'
 import ProjectCharter from './pages/sprint1/ProjectCharter.jsx'
 import Contributions from './pages/sprint1/Contributions.jsx'
 import Sprint2Placeholder from './pages/sprint2/Sprint2Placeholder.jsx'
+import BusinessCase from './pages/sprint2/BusinessCase.jsx'
+import EstimationAppendix from './pages/sprint2/EstimationAppendix.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -31,26 +33,8 @@ export default function App() {
             <Route path="/sprint-1/project-charter" element={<ProjectCharter />} />
             <Route path="/sprint-1/contributions" element={<Contributions />} />
             <Route path="/sprint-2" element={<Navigate to="/sprint-2/business-case" replace />} />
-            <Route
-              path="/sprint-2/business-case"
-              element={(
-                <Sprint2Placeholder
-                  title="Business Case"
-                  description="Value analysis and the team's go or no-go recommendation."
-                  warning="The team must complete the go or no-go recommendation and its reasoning without AI assistance."
-                />
-              )}
-            />
-            <Route
-              path="/sprint-2/estimation-appendix"
-              element={(
-                <Sprint2Placeholder
-                  title="Estimation Appendix"
-                  description="Estimation methods, resulting ranges, and the reasoning behind them."
-                  warning="Individual estimation memo work and reasoning must be completed without AI assistance."
-                />
-              )}
-            />
+            <Route path="/sprint-2/business-case" element={<BusinessCase />} />
+            <Route path="/sprint-2/estimation-appendix" element={<EstimationAppendix />} />
             <Route
               path="/sprint-2/roi-analysis"
               element={<Sprint2Placeholder title="ROI Analysis" description="The financial return analysis for ShareTab." />}

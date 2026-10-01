@@ -105,9 +105,13 @@ npm run preview
 
 ## Deployment
 
-Netlify, building `npm run build` and publishing `dist`. `netlify.toml` contains
-a catch-all `/* -> /index.html 200` redirect, which is **required** — without it,
-client-side routes 404 on hard refresh and any shared deep link breaks.
+GitHub Pages, via `.github/workflows/deploy.yml`, which builds on every push to
+`main` and publishes `dist`. The site is a GitHub **user site**, so it serves from
+the domain root and needs no `base` path.
+
+The workflow's `cp dist/index.html dist/404.html` step is **required** — GitHub
+Pages has no server-side rewrites, so without a 404.html fallback every route
+except `/` 404s on hard refresh and any shared deep link breaks.
 
 Everything for a sprint must be deployed and live before that sprint's demo; the
 instructor checks deployment time against the due date.
