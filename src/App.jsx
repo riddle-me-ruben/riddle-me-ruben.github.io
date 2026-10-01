@@ -39,15 +39,6 @@ export default function App() {
               path="/sprint-2/roi-analysis"
               element={<Sprint2Placeholder title="ROI Analysis" description="The financial return analysis for ShareTab." />}
             />
-            <Route
-              path="/sprint-2/change-log"
-              element={(
-                <Sprint2Placeholder
-                  title="Change Log"
-                  description="Revisions from Sprint 1, why they were made, and what they affected downstream."
-                />
-              )}
-            />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -24,7 +24,6 @@ export const NAV = [
       { to: '/sprint-2/business-case', label: 'Business Case' },
       { to: '/sprint-2/estimation-appendix', label: 'Estimation Appendix' },
       { to: '/sprint-2/roi-analysis', label: 'ROI Analysis' },
-      { to: '/sprint-2/change-log', label: 'Change Log' },
     ],
   },
 ]

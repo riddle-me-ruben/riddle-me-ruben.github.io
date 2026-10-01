@@ -29,10 +29,6 @@ const PAGE_META = {
     title: 'ROI Analysis',
     filename: 'sharetab-sprint-2-roi-analysis',
   },
-  '/sprint-2/change-log': {
-    title: 'Change Log',
-    filename: 'sharetab-sprint-2-change-log',
-  },
 }
 
 const LETTER = {
