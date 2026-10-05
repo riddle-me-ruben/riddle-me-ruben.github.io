@@ -10,7 +10,7 @@ import ProjectCharter from './pages/sprint1/ProjectCharter.jsx'
 import Contributions from './pages/sprint1/Contributions.jsx'
 import BusinessCase from './pages/sprint2/BusinessCase.jsx'
 import EstimationAppendix from './pages/sprint2/EstimationAppendix.jsx'
-import Sprint2Placeholder from './pages/sprint2/Sprint2Placeholder.jsx'
+import RoiAnalysis from './pages/sprint2/RoiAnalysis.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -35,10 +35,7 @@ export default function App() {
             <Route path="/sprint-2" element={<Navigate to="/sprint-2/business-case" replace />} />
             <Route path="/sprint-2/business-case" element={<BusinessCase />} />
             <Route path="/sprint-2/estimation-appendix" element={<EstimationAppendix />} />
-            <Route
-              path="/sprint-2/roi-analysis"
-              element={<Sprint2Placeholder title="ROI Analysis" description="The financial return analysis for ShareTab." />}
-            />
+            <Route path="/sprint-2/roi-analysis" element={<RoiAnalysis />} />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
