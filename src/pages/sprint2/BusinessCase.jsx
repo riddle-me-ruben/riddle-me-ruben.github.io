@@ -156,25 +156,6 @@ export default function BusinessCase() {
         </div>
       </DocSection>
 
-      {/* ---------------- Go / no-go ---------------- */}
-      <DocSection title="Go / no-go recommendation">
-        <Card>
-          <CardBody>
-            <Prose>
-              <p>
-                <strong>This section is written by the team without AI assistance.</strong> Course policy
-                prohibits AI involvement in the go/no-go reasoning and justification of any sprint deliverable, so
-                the recommendation and the argument behind it are the team&rsquo;s own work and will be defended in
-                the final question-and-answer session.
-              </p>
-            </Prose>
-            <p className="mt-4 border-t border-ink-700 pt-4 text-sm leading-6 text-ink-400">
-              To be completed before the Sprint 2 deadline: the recommendation itself, the criteria it was judged
-              against, and what would have to be true to reverse it.
-            </p>
-          </CardBody>
-        </Card>
-      </DocSection>
     </article>
   )
 }
