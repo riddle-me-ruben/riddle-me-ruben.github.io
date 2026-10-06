@@ -3,7 +3,7 @@ import { Badge, Card, CardBody, DocSection, MarkerList, Prose, SectionHeading, T
 const SUMMARY = [
   { label: 'Base build', value: '$28,120', note: '$26,520 labor and $1,600 non-labor' },
   { label: 'Cost baseline', value: '$33,844', note: 'Base build plus contingency reserve' },
-  { label: 'Budget request', value: '$35,536', note: 'Cost baseline plus management reserve' },
+  { label: 'One-sprint budget', value: '$35,536', note: 'Cost baseline plus management reserve' },
   { label: 'Annual operations', value: '$10,260', note: 'Support, hosting, monitoring, and backups' },
 ]
 
@@ -71,7 +71,7 @@ export default function RoiAnalysis() {
         <SectionHeading
           eyebrow="Sprint 2"
           title="ROI Analysis"
-          description="The cost foundation for evaluating ShareTab's return, based on the Split Shared Expenses budget dated October 5, 2026."
+          description="The cost foundation for evaluating ShareTab's return, based on the Split Shared Expenses budget dated October 1, 2026."
         />
       </header>
 
@@ -195,15 +195,20 @@ export default function RoiAnalysis() {
 
         <Card className="mt-4">
           <CardBody>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-3">
               <div>
                 <p className="label mb-1">Three-year operating cost</p>
                 <p className="text-xl font-bold text-ink-50">$30,780</p>
               </div>
               <div>
-                <p className="label mb-1">Three-year cost of ownership</p>
-                <p className="text-xl font-bold text-neon-300">$58,900</p>
-                <p className="mt-1 text-xs text-ink-400">$28,120 base build plus $30,780 in operations</p>
+                <p className="label mb-1">Three-year delivery budget</p>
+                <p className="text-xl font-bold text-ink-50">$2,771,808</p>
+                <p className="mt-1 text-xs text-ink-400">78 sprints at $35,536 per sprint</p>
+              </div>
+              <div>
+                <p className="label mb-1">Three-year grand total</p>
+                <p className="text-xl font-bold text-neon-300">$2,802,588</p>
+                <p className="mt-1 text-xs text-ink-400">Delivery budget plus operating costs</p>
               </div>
             </div>
           </CardBody>
@@ -259,7 +264,10 @@ export default function RoiAnalysis() {
           <tr><td>Contingency reserve</td><td>Sum of identified risk values</td><td>$5,724</td></tr>
           <tr><td className="font-medium text-ink-50">Cost baseline</td><td>Base build plus contingency</td><td className="font-medium text-ink-50">$33,844</td></tr>
           <tr><td>Management reserve</td><td>5% of the cost baseline</td><td>$1,692</td></tr>
-          <tr><td className="font-semibold text-ink-50">Total budget request</td><td>Cost baseline plus management reserve</td><td className="font-bold text-neon-300">$35,536</td></tr>
+          <tr><td className="font-medium text-ink-50">Total budget request, 1 sprint</td><td>Cost baseline plus management reserve</td><td className="font-medium text-ink-50">$35,536</td></tr>
+          <tr><td className="font-medium text-ink-50">Total budget request, 3 years</td><td>78 sprints at $35,536</td><td className="font-medium text-ink-50">$2,771,808</td></tr>
+          <tr><td>Operating cost</td><td>$10,260 per year for 3 years</td><td>$30,780</td></tr>
+          <tr><td className="font-semibold text-ink-50">Grand total, 3 years</td><td>Delivery budget plus operating costs</td><td className="font-bold text-neon-300">$2,802,588</td></tr>
         </Table>
         <p className="mt-4 text-sm leading-6 text-ink-400">
           The $28,120 base build remains within the Estimation Appendix range of $17,400 to $35,040.
@@ -279,8 +287,8 @@ export default function RoiAnalysis() {
                 period cannot be calculated until the team estimates those benefits.
               </p>
               <p>
-                For a three-year analysis, projected benefits must exceed the current <strong>$58,900 cost of
-                ownership</strong> to produce a positive return. ROI can then be calculated as benefits minus costs,
+                For a three-year analysis, projected benefits must exceed the current <strong>$2,802,588 grand
+                total</strong> to produce a positive return. ROI can then be calculated as benefits minus costs,
                 divided by costs, multiplied by 100.
               </p>
             </Prose>
