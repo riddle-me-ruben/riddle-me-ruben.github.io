@@ -26,6 +26,11 @@ export const NAV = [
       { to: '/sprint-2/roi-analysis', label: 'ROI Analysis' },
     ],
   },
+  {
+    to: '/sprint-3',
+    label: 'Sprint 3',
+    children: [{ to: '/sprint-3/market-research', label: 'Market Research' }],
+  },
 ]
 
 export default function Navbar() {

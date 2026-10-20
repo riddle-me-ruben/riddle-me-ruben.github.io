@@ -11,6 +11,7 @@ import Contributions from './pages/sprint1/Contributions.jsx'
 import BusinessCase from './pages/sprint2/BusinessCase.jsx'
 import EstimationAppendix from './pages/sprint2/EstimationAppendix.jsx'
 import RoiAnalysis from './pages/sprint2/RoiAnalysis.jsx'
+import Sprint3MarketResearch from './pages/sprint3/MarketResearch.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -36,6 +37,8 @@ export default function App() {
             <Route path="/sprint-2/business-case" element={<BusinessCase />} />
             <Route path="/sprint-2/estimation-appendix" element={<EstimationAppendix />} />
             <Route path="/sprint-2/roi-analysis" element={<RoiAnalysis />} />
+            <Route path="/sprint-3" element={<Navigate to="/sprint-3/market-research" replace />} />
+            <Route path="/sprint-3/market-research" element={<Sprint3MarketResearch />} />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

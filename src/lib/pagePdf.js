@@ -25,6 +25,10 @@ const PAGE_META = {
     title: 'Estimation Appendix',
     filename: 'sharetab-sprint-2-estimation-appendix',
   },
+  '/sprint-3/market-research': {
+    title: 'Phase 3 Interviews',
+    filename: 'sharetab-sprint-3-market-research',
+  },
   '/sprint-2/roi-analysis': {
     title: 'ROI Analysis',
     filename: 'sharetab-sprint-2-roi-analysis',
