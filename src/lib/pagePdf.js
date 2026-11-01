@@ -33,6 +33,14 @@ const PAGE_META = {
     title: 'ROI Analysis',
     filename: 'sharetab-sprint-2-roi-analysis',
   },
+  '/sprint-4/service-levels': {
+    title: 'Service Levels',
+    filename: 'sharetab-sprint-4-service-levels',
+  },
+  '/sprint-4/sketches': {
+    title: 'ShareTab Sketches',
+    filename: 'sharetab-sprint-4-sketches',
+  },
 }
 
 const LETTER = {

@@ -31,6 +31,14 @@ export const NAV = [
     label: 'Sprint 3',
     children: [{ to: '/sprint-3/market-research', label: 'Market Research' }],
   },
+  {
+    to: '/sprint-4',
+    label: 'Sprint 4',
+    children: [
+      { to: '/sprint-4/service-levels', label: 'Service Levels' },
+      { to: '/sprint-4/sketches', label: 'Sketches' },
+    ],
+  },
 ]
 
 export default function Navbar() {
