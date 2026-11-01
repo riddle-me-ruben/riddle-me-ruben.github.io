@@ -13,6 +13,7 @@ import EstimationAppendix from './pages/sprint2/EstimationAppendix.jsx'
 import RoiAnalysis from './pages/sprint2/RoiAnalysis.jsx'
 import Sprint3MarketResearch from './pages/sprint3/MarketResearch.jsx'
 import ServiceLevels from './pages/sprint4/ServiceLevels.jsx'
+import ErrorBudgets from './pages/sprint4/ErrorBudgets.jsx'
 import Sketches from './pages/sprint4/Sketches.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/sprint-3/market-research" element={<Sprint3MarketResearch />} />
             <Route path="/sprint-4" element={<Navigate to="/sprint-4/service-levels" replace />} />
             <Route path="/sprint-4/service-levels" element={<ServiceLevels />} />
+            <Route path="/sprint-4/error-budgets" element={<ErrorBudgets />} />
             <Route path="/sprint-4/sketches" element={<Sketches />} />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />

@@ -9,7 +9,7 @@ export default function ServiceLevels() {
         <SectionHeading
           eyebrow="Sprint 4"
           title="Service Levels"
-          description="The measurements, targets, error budgets, and response rules that define reliable service for ShareTab."
+          description="The measurements, targets, and response rules that define reliable service for ShareTab."
         />
       </header>
 
@@ -39,58 +39,6 @@ export default function ServiceLevels() {
               <td>{level.measurement}</td>
             </tr>
           ))}
-        </Table>
-      </DocSection>
-
-      <DocSection title="Error budgets">
-        <Card variant="accent" className="mb-4">
-          <CardBody>
-            <p className="label mb-1">Formula</p>
-            <p className="text-xl font-bold text-neon-300">Error budget = 100% minus the SLO</p>
-            <p className="mt-2 text-sm leading-6 text-ink-300">
-              The budget is the amount of unreliability the service may spend before feature work slows and
-              reliability work takes priority.
-            </p>
-          </CardBody>
-        </Card>
-
-        <Table columns={['Objective', 'Target', 'Budget', 'What spends it']}>
-          {SERVICE_LEVELS.map((level) => (
-            <tr key={level.key}>
-              <td className="font-medium text-ink-50">{level.objective}</td>
-              <td>{level.target}</td>
-              <td>
-                <span className="font-medium text-neon-300">{level.budget}</span>
-                <span className="mt-1 block text-xs leading-5 text-ink-400">{level.budgetMath}</span>
-              </td>
-              <td>{level.spendsIt}</td>
-            </tr>
-          ))}
-        </Table>
-      </DocSection>
-
-      <DocSection title="Error budget policy">
-        <Table columns={['Field', 'Availability objective', 'Correctness objective']}>
-          <tr>
-            <td className="font-medium text-ink-50">Objective</td>
-            {SERVICE_LEVELS.map((level) => <td key={level.key}>{level.target} during {level.window.toLowerCase()}</td>)}
-          </tr>
-          <tr>
-            <td className="font-medium text-ink-50">Budget</td>
-            {SERVICE_LEVELS.map((level) => <td key={level.key}>{level.budget}</td>)}
-          </tr>
-          <tr>
-            <td className="font-medium text-ink-50">Policy action</td>
-            {SERVICE_LEVELS.map((level) => <td key={level.key}>{level.policy}</td>)}
-          </tr>
-          <tr>
-            <td className="font-medium text-ink-50">Owner</td>
-            {SERVICE_LEVELS.map((level) => <td key={level.key}>{level.owner}</td>)}
-          </tr>
-          <tr>
-            <td className="font-medium text-ink-50">Who we tell and when</td>
-            {SERVICE_LEVELS.map((level) => <td key={level.key}>{level.notice}</td>)}
-          </tr>
         </Table>
       </DocSection>
 

@@ -37,6 +37,10 @@ const PAGE_META = {
     title: 'Service Levels',
     filename: 'sharetab-sprint-4-service-levels',
   },
+  '/sprint-4/error-budgets': {
+    title: 'Error Budgets',
+    filename: 'sharetab-sprint-4-error-budgets',
+  },
   '/sprint-4/sketches': {
     title: 'ShareTab Sketches',
     filename: 'sharetab-sprint-4-sketches',

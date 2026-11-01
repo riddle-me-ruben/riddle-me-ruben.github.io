@@ -36,6 +36,7 @@ export const NAV = [
     label: 'Sprint 4',
     children: [
       { to: '/sprint-4/service-levels', label: 'Service Levels' },
+      { to: '/sprint-4/error-budgets', label: 'Error Budgets' },
       { to: '/sprint-4/sketches', label: 'Sketches' },
     ],
   },
