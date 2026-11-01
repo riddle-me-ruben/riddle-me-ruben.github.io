@@ -15,7 +15,7 @@ export const SERVICE_LEVEL_TERMS = [
     term: 'SLA',
     name: 'Service Level Agreement',
     meaning:
-      'If ShareTab misses either objective, new feature work pauses while the incident team restores reliability or correctness. The Communicator notifies the instructor according to the assigned severity deadline.',
+      'If ShareTab misses either objective, new feature work pauses while the incident team restores reliability or correctness. The Communicator notifies the fixers according to the assigned severity deadline.',
   },
 ]
 
