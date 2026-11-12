@@ -49,6 +49,10 @@ const PAGE_META = {
     title: 'ShareTab Wireframes',
     filename: 'sharetab-sprint-5-wireframes',
   },
+  '/sprint-5/prototype': {
+    title: 'ShareTab Interactive Prototype',
+    filename: 'sharetab-sprint-5-prototype',
+  },
 }
 
 const LETTER = {

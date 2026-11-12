@@ -43,7 +43,10 @@ export const NAV = [
   {
     to: '/sprint-5',
     label: 'Sprint 5',
-    children: [{ to: '/sprint-5/wireframes', label: 'Wireframes' }],
+    children: [
+      { to: '/sprint-5/wireframes', label: 'Wireframes' },
+      { to: '/sprint-5/prototype', label: 'Prototype' },
+    ],
   },
 ]
 

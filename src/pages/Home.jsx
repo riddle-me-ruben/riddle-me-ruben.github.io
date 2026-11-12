@@ -16,7 +16,10 @@ const SPRINT4_PAGES = [
   { to: '/sprint-4/sketches', label: 'Sketches' },
 ]
 
-const SPRINT5_PAGES = [{ to: '/sprint-5/wireframes', label: 'Wireframes' }]
+const SPRINT5_PAGES = [
+  { to: '/sprint-5/wireframes', label: 'Wireframes' },
+  { to: '/sprint-5/prototype', label: 'Prototype' },
+]
 
 const SPRINT2_PAGES = [
   { to: '/sprint-2/business-case', label: 'Business Case' },
@@ -118,7 +121,7 @@ export default function Home() {
           <Card>
             <CardBody>
               <p className="eyebrow">Sprint 5</p>
-              <h3 className="mb-4 text-base font-semibold text-ink-50">Digital Wireframes</h3>
+              <h3 className="mb-4 text-base font-semibold text-ink-50">Wireframes &amp; Prototype</h3>
               <ul className="space-y-2">
                 {SPRINT5_PAGES.map((page) => (
                   <li key={page.to}>
