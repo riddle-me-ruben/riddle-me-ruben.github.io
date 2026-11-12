@@ -40,6 +40,11 @@ export const NAV = [
       { to: '/sprint-4/sketches', label: 'Sketches' },
     ],
   },
+  {
+    to: '/sprint-5',
+    label: 'Sprint 5',
+    children: [{ to: '/sprint-5/wireframes', label: 'Wireframes' }],
+  },
 ]
 
 export default function Navbar() {
@@ -61,7 +66,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 xl:flex">
           {NAV.map((item) =>
             item.children ? (
               <div key={item.to} className="group relative">
@@ -106,14 +111,14 @@ export default function Navbar() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle navigation menu"
           aria-expanded={mobileOpen}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-700 bg-ink-850 text-ink-200 md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-700 bg-ink-850 text-ink-200 xl:hidden"
         >
           {mobileOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
       </div>
 
       {mobileOpen && (
-        <nav className="border-t border-ink-700/80 bg-ink-950 px-4 py-2 md:hidden">
+        <nav className="border-t border-ink-700/80 bg-ink-950 px-4 py-2 xl:hidden">
           <div className="flex flex-col gap-1 pb-2">
             {NAV.map((item) => (
               <div key={item.to}>

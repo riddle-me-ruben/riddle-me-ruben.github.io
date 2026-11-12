@@ -15,6 +15,7 @@ import Sprint3MarketResearch from './pages/sprint3/MarketResearch.jsx'
 import ServiceLevels from './pages/sprint4/ServiceLevels.jsx'
 import ErrorBudgets from './pages/sprint4/ErrorBudgets.jsx'
 import Sketches from './pages/sprint4/Sketches.jsx'
+import Wireframes from './pages/sprint5/Wireframes.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -46,6 +47,8 @@ export default function App() {
             <Route path="/sprint-4/service-levels" element={<ServiceLevels />} />
             <Route path="/sprint-4/error-budgets" element={<ErrorBudgets />} />
             <Route path="/sprint-4/sketches" element={<Sketches />} />
+            <Route path="/sprint-5" element={<Navigate to="/sprint-5/wireframes" replace />} />
+            <Route path="/sprint-5/wireframes" element={<Wireframes />} />
             <Route path="/index.html" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

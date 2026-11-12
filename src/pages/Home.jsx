@@ -16,6 +16,8 @@ const SPRINT4_PAGES = [
   { to: '/sprint-4/sketches', label: 'Sketches' },
 ]
 
+const SPRINT5_PAGES = [{ to: '/sprint-5/wireframes', label: 'Wireframes' }]
+
 const SPRINT2_PAGES = [
   { to: '/sprint-2/business-case', label: 'Business Case' },
   { to: '/sprint-2/estimation-appendix', label: 'Estimation Appendix' },
@@ -43,7 +45,7 @@ export default function Home() {
       <section>
         <h2 className="mb-4 text-lg font-bold text-ink-50">Sprints</h2>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           <Card>
             <CardBody>
               <p className="eyebrow">Sprint 1</p>
@@ -102,6 +104,23 @@ export default function Home() {
               <h3 className="mb-4 text-base font-semibold text-ink-50">Service Reliability &amp; Design</h3>
               <ul className="space-y-2">
                 {SPRINT4_PAGES.map((page) => (
+                  <li key={page.to}>
+                    <Link to={page.to} className="flex items-center gap-2.5 text-sm text-ink-200 hover:text-neon-300">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink-600" />
+                      {page.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </CardBody>
+          </Card>
+
+          <Card>
+            <CardBody>
+              <p className="eyebrow">Sprint 5</p>
+              <h3 className="mb-4 text-base font-semibold text-ink-50">Digital Wireframes</h3>
+              <ul className="space-y-2">
+                {SPRINT5_PAGES.map((page) => (
                   <li key={page.to}>
                     <Link to={page.to} className="flex items-center gap-2.5 text-sm text-ink-200 hover:text-neon-300">
                       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink-600" />
